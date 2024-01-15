@@ -29,6 +29,11 @@ public class TestController {
 		return testSerivce.insertApiData();
 	}
 	
+	@PostMapping(value ="/select")
+	public List<CoinEntity> select(@RequestBody List<String> codeList) throws Exception{
+		return testSerivce.select(codeList);
+	}
+	
 	@PostMapping(value ="/insert")
 	public String insert(@RequestBody List<CoinEntity> coinList) throws Exception{
 		return testSerivce.insert(coinList);

@@ -19,7 +19,7 @@ public class JdbcCoinDao implements CoinDao {
 	@Override
 	public List<CoinEntity> selectByCode(List<String> codeList) {
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT CODE, CODENAME, RATE, UPDATETIME FROM COIN WHERE CODE IN (");
+		sql.append("SELECT CODE, CODENAME, RATE, TO_TIMESTAMP(UPDATETIME,'YYYY/MM/DD HH24:MI:SS') AS NEWUPDATETIME FROM COIN WHERE CODE IN (");
 		for (String code : codeList) {
 			sql.append("'");
 			sql.append(code);
@@ -32,7 +32,7 @@ public class JdbcCoinDao implements CoinDao {
 			coin.setCode(resultSet.getString("CODE"));
 			coin.setCodeName(resultSet.getString("CODENAME"));
 			coin.setRate(resultSet.getBigDecimal("RATE"));
-			coin.setUpdatetime(resultSet.getTimestamp("UPDATETIME"));
+			coin.setUpdatetime(resultSet.getString("NEWUPDATETIME"));
 			return coin;
 		});
 	}

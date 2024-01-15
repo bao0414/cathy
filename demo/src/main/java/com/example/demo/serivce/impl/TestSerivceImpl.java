@@ -59,6 +59,11 @@ public class TestSerivceImpl implements TestSerivce {
 	}
 
 	@Override
+	public List<CoinEntity> select(List<String> codeList) throws Exception {
+		return coinDao.selectByCode(codeList);
+	}
+
+	@Override
 	@Transactional
 	public String insert(List<CoinEntity> coinList) throws Exception {
 		List<String> codeList = coinList.stream().map(CoinEntity::getCode).collect(Collectors.toList());
@@ -110,11 +115,12 @@ public class TestSerivceImpl implements TestSerivce {
 			}
 		}
 	}
-	
+
 	private CoinEntity getCoinEntiry(BpiEntity bpiEntity) {
 		CoinEntity coinEntiry = new CoinEntity();
 		coinEntiry.setCode(bpiEntity.getCode());
 		coinEntiry.setRate(new BigDecimal(bpiEntity.getRate_float()));
 		return coinEntiry;
 	}
+
 }

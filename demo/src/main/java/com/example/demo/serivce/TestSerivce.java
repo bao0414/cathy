@@ -10,7 +10,9 @@ public interface TestSerivce {
 	public CurrentpriceVO getData() throws Exception;
 	
 	public int insertApiData() throws Exception;
-
+	
+	public List<CoinEntity> select(List<String> codeList) throws Exception;
+	
 	public String insert(List<CoinEntity> coinList) throws Exception;
 
 	public String update(List<CoinEntity> coinEntiry) throws Exception;

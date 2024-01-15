@@ -5,13 +5,13 @@ import java.sql.Timestamp;
 
 public class CoinEntity {
 
-    private String code;
+	private String code;
 
-    private String codeName;
-    
-    private BigDecimal rate;
- 
-    private Timestamp updatetime;
+	private String codeName;
+
+	private BigDecimal rate;
+
+	private String updatetime;
 
 	public String getCode() {
 		return code;
@@ -37,11 +37,11 @@ public class CoinEntity {
 		this.rate = rate;
 	}
 
-	public Timestamp getUpdatetime() {
+	public String getUpdatetime() {
 		return updatetime;
 	}
 
-	public void setUpdatetime(Timestamp updatetime) {
+	public void setUpdatetime(String updatetime) {
 		this.updatetime = updatetime;
 	}
 
