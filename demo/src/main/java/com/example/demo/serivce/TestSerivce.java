@@ -9,7 +9,7 @@ public interface TestSerivce {
 	
 	public CurrentpriceVO getData() throws Exception;
 	
-	public int insertApiData() throws Exception;
+	public List<CoinEntity> insertApiData() throws Exception;
 	
 	public List<CoinEntity> select(List<String> codeList) throws Exception;
 	

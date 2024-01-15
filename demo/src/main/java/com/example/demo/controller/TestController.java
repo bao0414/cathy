@@ -25,7 +25,7 @@ public class TestController {
 	}
 	
 	@GetMapping(value ="/insertApiData")
-	public int insertApiData() throws Exception{
+	public List<CoinEntity> insertApiData() throws Exception{
 		return testSerivce.insertApiData();
 	}
 	

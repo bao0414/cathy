@@ -43,7 +43,7 @@ public class TestSerivceImpl implements TestSerivce {
 
 	@Override
 	@Transactional
-	public int insertApiData() throws Exception {
+	public List<CoinEntity> insertApiData() throws Exception {
 		CurrentpriceVO getData = this.getData();
 		List<CoinEntity> bpiList = new ArrayList<>();
 		CoinEntity eur = this.getCoinEntiry(getData.getBpi().getEur());
@@ -55,7 +55,12 @@ public class TestSerivceImpl implements TestSerivce {
 		bpiList.add(eur);
 		bpiList.add(gbp);
 		bpiList.add(usd);
-		return coinDao.insert(bpiList);
+		coinDao.insert(bpiList);
+		List<String> codeList = new ArrayList<>();
+		codeList.add(eur.getCode());
+		codeList.add(gbp.getCode());
+		codeList.add(usd.getCode());
+		return this.select(codeList);
 	}
 
 	@Override
